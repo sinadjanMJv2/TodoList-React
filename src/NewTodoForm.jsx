@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export function NewTodoForm(props) {
+export function NewTodoForm({onSubmit}) {
 
     
 
@@ -10,7 +10,7 @@ export function NewTodoForm(props) {
     e.preventDefault();
 
     if (newItem === "") return alert("please input fields")
-    props.onSubmit(newItem);
+    onSubmit(newItem);
     setnewItem("");
   }
 
@@ -25,7 +25,7 @@ export function NewTodoForm(props) {
           id="item"
         />
       </div>
-      <button className="btn">Add</button>
+      <button className="btn">Add new item</button>
       <h1 className="header">Todo List</h1>
     </form>
   );
