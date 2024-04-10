@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { NewTodoForm } from "./NewTodoForm";
+import { TodoList } from "./TodoList";
 
 
 function App() {
@@ -40,33 +41,10 @@ function App() {
 
   return (
     <>
-     <h1>Todo List</h1>
 
     <NewTodoForm onSubmit={addTodo}/>
+    <TodoList Todos={Todos}/>
 
-      <ul className="list">
-        {Todos.length === 0 && "No Todos"}
-        {Todos.map((todo) => {
-          return (
-            <li key={todo.id}>
-              <label>
-                <input
-                  type="checkbox"
-                  checked={todo.completed}
-                  onClick={(e) => toggleTodo(todo.id, e.target.checked)}
-                />
-                {todo.title}
-              </label>
-              <button
-                className="btn btn-danger"
-                onClick={() => deleteTodo(todo.id)}
-              >
-                Delete
-              </button>
-            </li>
-          );
-        })}
-      </ul>
     </>
   );
 }

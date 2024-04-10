@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export function NewTodoForm(props) {
+export function NewTodoForm({onSubmit}) {
 
     
 
@@ -10,7 +10,7 @@ export function NewTodoForm(props) {
     e.preventDefault();
 
     if (newItem === "") return alert("please input fields")
-    props.onSubmit(newItem);
+    onSubmit(newItem);
     setnewItem("");
   }
 
