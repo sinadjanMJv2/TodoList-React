@@ -43,7 +43,7 @@ function App() {
     <>
 
     <NewTodoForm onSubmit={addTodo}/>
-    <TodoList Todos={Todos}/>
+    <TodoList Todos={Todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo}/>
 
     </>
   );
