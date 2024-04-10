@@ -5,7 +5,19 @@ import { TodoList } from "./TodoList";
 
 function App() {
  
-  const [Todos, setTodos] = useState([]);
+  const [Todos, setTodos] = useState(() => {
+
+    const localValue = localStorage.getItem("ITEMS")
+    if (localValue == null) return []
+
+    return JSON.parse(localValue)
+  })
+
+
+  useEffect(() => {
+    localStorage.setItem("ITEMS", JSON.stringify(Todos))
+  }, [Todos])
+
 
   function addTodo(title) {
       setTodos((currenttodos) => {
